@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [txt, setTxt] = useState("");
+
+  function addTodo() {
+    if (txt.trim().length)
+      setTodos([
+        ...todos,
+        {
+          id: new Date().toISOString(),
+          txt,
+          completed: false,
+        },
+      ]);
+    setTxt("");
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <label>
+        <input value={txt} onChange={(e) => setTxt(e.target.value)} />
+        <button onClick={addTodo}>Add Todo</button>
+      </label>
+
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            <input type="checkbox" />
+            <span>{todo.txt} </span>
+            <span className="times">&times;</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
