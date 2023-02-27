@@ -4,4 +4,5 @@ ul {
 
 .times {
   color: firebrick;
+  cursor: pointer;
 }

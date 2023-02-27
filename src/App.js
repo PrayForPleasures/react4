@@ -18,6 +18,10 @@ function App() {
     setTxt("");
   }
 
+  function deleteTodo(todoId) {
+    setTodos(todos.filter((todo) => todo.id !== todoId));
+  }
+
   return (
     <div className="App">
       <label>
@@ -30,7 +34,9 @@ function App() {
           <li key={todo.id}>
             <input type="checkbox" />
             <span>{todo.txt} </span>
-            <span className="times">&times;</span>
+            <span className="times" onClick={() => deleteTodo(todo.id)}>
+              &times;
+            </span>
           </li>
         ))}
       </ul>
