@@ -2,7 +2,25 @@ ul {
   list-style: none;
 }
 
+.globalApp {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
 .times {
   color: firebrick;
+  cursor: pointer;
+}
+
+.inputStyle {
+  margin-right: 8px;
+}
+
+.buttonAdd:hover {
+  border-radius: 3px;
+  border: 2px solid firebrick;
   cursor: pointer;
 }

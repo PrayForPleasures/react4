@@ -24,22 +24,30 @@ function App() {
 
   return (
     <div className="App">
-      <label>
-        <input value={txt} onChange={(e) => setTxt(e.target.value)} />
-        <button onClick={addTodo}>Add Todo</button>
-      </label>
-
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <input type="checkbox" />
-            <span>{todo.txt} </span>
-            <span className="times" onClick={() => deleteTodo(todo.id)}>
-              &times;
-            </span>
-          </li>
-        ))}
-      </ul>
+      <div className="globalApp">
+        <label>
+          <input
+            className="inputStyle"
+            placeholder="Place for Ur Todos"
+            value={txt}
+            onChange={(e) => setTxt(e.target.value)}
+          />
+          <button className="buttonAdd" onClick={addTodo}>
+            Add Todo
+          </button>
+        </label>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <input type="checkbox" />
+              <span>{todo.txt} </span>
+              <span className="times" onClick={() => deleteTodo(todo.id)}>
+                &times;
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
